@@ -1,12 +1,10 @@
 class ArticlesController < ApplicationController
-    protect_from_forgery :except => [:create]
 
     def new
         
     end
 
     def create
-        
         @article = Article.new(article_params)
 
         @article.save
