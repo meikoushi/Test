@@ -51,4 +51,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'coffee-script-source', '1.8.0'
 
-gem 'unicorn'
+platforms :ruby do # linux
+  gem 'unicorn'
+end
+
+platforms :mswin do
+  # gems specific to windows
+end
