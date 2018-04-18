@@ -7,32 +7,34 @@
   <strong>Text:</strong>
   <%= @article.text %>
 </p>
-
-<h2>Comments:</h2>
-<% @article.Comments.each do |comment| %>
+ 
+<h2>Comments</h2>
+<% @article.comments.each do |comment| %>
   <p>
-    <strong>Commenter:</strong>
+    <strong>commenter:</strong>
     <%= comment.commenter %>
   </p>
+ 
   <p>
-    <strong>Comment:</strong>
-    <%= @article.text %>
+    <strong>comment:</strong>
+    <%= comment.body %>
   </p>
 <% end %>
-
-
+ 
 <h2>Add a comment:</h2>
-<%= form_for([@article,@article.comment.build]) do |f| %>
-<p>
-  <%= f.label :commenter %><br>
-  <%= f.text_field :commenter %>
-</p>
-<p>
-  <%= f.label :body %><br>
-  <%= f.text_area :body %>
-</p>
-<p>
-  <%= f.submit %>
-</p>
-<%=link_to 'back',articles_path %>
-|<%=link_to 'edit',edit_articles_path(@article) %>
+<%= form_for([@article, @article.comments.build]) do |f| %>
+  <p>
+    <%= f.label :commenter %><br>
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+ 
+<%= link_to 'Edit Article', edit_article_path(@article) %> |
+<%= link_to 'Back to Articles', articles_path %>
