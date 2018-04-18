@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+    protect_from_forgery except: :create
     def create
         @article = Article.find(params[:article_id])
         @comment = @article.comment.create(comment_params)
